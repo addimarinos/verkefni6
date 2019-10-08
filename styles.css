@@ -1,0 +1,244 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1450px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 1490px) {
+  .main {
+    padding: 0;
+  }
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.text p {
+  margin-bottom: 20px;
+}
+
+.image {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+/* grid fyrir efni, setja þarf upp í html */
+
+.grid__row {
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.grid__col {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* grid fyrir cards */
+
+.cards {
+  justify-content: space-around;
+}
+
+.cards__row {
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.cards__col {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/*
+  .card kemur óbreytt úr sýnilausn á verkefni 5 fyrir utan responsive stíla og
+  að það fær `height: 100%;`
+  Sýnilausn verður gefin út við lok dags miðvikudaginn 3. okt
+*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 470px;
+  max-height: 320px;
+  overflow: auto;
+
+  background-color: #fff;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+
+.card__title {
+  margin-bottom: 20px;
+
+  font-size: 1.5em;
+  line-height: 1;
+  word-break: break-word;
+}
+
+.card__content {
+  display: flex;
+  flex: 1;
+}
+
+.card__text {
+  font-size: 1em;
+  line-height: 1.20;
+  word-break: break-word;
+}
+
+.card__image {
+  padding-right: 20px;
+  flex: 0 0 150px;
+  order: -1;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__tags {
+  margin-top: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  list-style: none;
+}
+
+.card__tag {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.cards--first-flex-item{
+  order: -1;
+}
+
+/* < 700 */
+@media(max-width: 699px) {
+  .cards {
+    padding: 0;
+  }
+  .cards__col {
+    width: 100%;
+  }
+  
+  .grid__row:nth-of-type(2) > .grid__col:nth-of-type(1) {
+    order: 2;
+  }
+  .grid_row:nth-of-type(2) > .grid_col:nth-of-type(2) {
+    order: 1;
+  }
+
+  .card {
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #aaa;
+    border-left: 0px;
+    border-radius: 0px;
+
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 20px;
+    padding: 0 0 20px 0;
+  }
+  .card__content { 
+    flex-direction: column;
+  }
+  .card__text {
+    margin-bottom: 20px;
+  }
+
+  .card__image {
+    padding-left: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .card_img {
+    max-width: 100%;
+  }
+}
+
+/* >= 700 */
+@media (min-width: 700px){
+  .cards {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  .cards_row {
+    display: flex;
+    flex-wrap: wrap;       
+  }
+  .cards__col {
+    display: flex;
+    width: 50%;
+  }
+  .grid__row:nth-of-type(2) > .grid__col:nth-of-type(1) {
+    order: 2;
+  }
+  .grid_row:nth-of-type(2) > .grid_col:nth-of-type(2) {
+    order: 1;
+  }
+  
+  
+}
+
+/* >= 1000 */
+@media (min-width: 1000px) {
+  .grid {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+  .grid__row {
+    flex-direction: row;
+  }
+  .grid__col {
+    width: 50%;
+    margin-bottom: 40px;
+  }
+  
+  .cards__col {
+    display: flex;
+    width: 33.33333%;
+  }
+  .grid__col:nth-child(2) {
+    order: 2;
+  }
+}
+
+
+
